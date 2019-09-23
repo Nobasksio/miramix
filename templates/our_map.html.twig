@@ -1,0 +1,108 @@
+{% extends 'index.html.twig' %}
+
+{% block title %}Отделы ТЦ{% endblock %}
+
+{% block bread_crumbs %}
+
+{% endblock %}
+
+{% block page_menu %}
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    <script src="{{ asset('js/jquery-mousewheel-3.1.13/jquery.mousewheel.min.js')}}"></script >
+
+    <script type="text/javascript" >
+
+
+
+        function zoom(vector) {
+            if (vector == 0) {
+                $('svg').attr('transform', 'scale(1.189 1.189)')
+            } else{
+                $('svg').attr('transform', 'scale(1.800 1.800)')
+            }
+        }
+
+        function show(show_floor, hide_floor) {
+            $('#transform-wrapper' + show_floor).show();
+            $('#transform-wrapper' + hide_floor).hide();
+            $('#but_' + show_floor).addClass('button_white_manege_active');
+            $('#but_' + hide_floor).removeClass('button_white_manege_active');
+        }
+
+        $(function () {
+            $("g").click(function (event, data) {
+                var this_id;
+
+                this_id = $(this).attr('id');
+
+                if (this_id !== 'undefined') {
+                    this_id = this_id.substr(5,3);
+                    if (this_id !== 'undefined') {
+                        //$(".close2").click();
+                        $("g").find('tspan').removeClass('st3_active');
+                        $("g").find('text').removeClass('st3_active');
+                        $("g").removeClass('g_active');
+                        $("#card_brend").addClass('prozr');
+
+                        $("#place"+this_id).addClass('g_active');
+                        $("#place"+this_id).find('tspan').addClass('st3_active');
+                        $("#place"+this_id).find('text').addClass('st3_active');
+                    $.ajax({
+                        url: '/ajax/mapplace/' + this_id,
+                        dataType: "text",
+                        success: function (data) {
+
+                            var data_obj = JSON.parse(data);
+
+                            if (data_obj.id !=0) {
+                                $('#site').html("<a href='/renter/'" + data_obj.id + ">" + data_obj.link + "</a>");
+                                $('#name').text('' + data_obj.name + '');
+
+                                let description = document.write(data_obj.description.substr(0, 90));
+
+                                if (data_obj.description.length > 90){
+                                    description = description + "...";
+                                }
+                                $('#description').html("" + description + "");
+                                $('#link').attr('href', '/renter/' + data_obj.id + '');
+                            } else {
+                                $('#site').html('');
+                                $('#name').text('Пока тут никого нет)');
+                                $('#description').html("Если вы хотите занять это место или уверены что тут должен быть арендатор обратитесь к нам через форму обратной связи на странице контактов");
+                                $('#link').attr('href', '/contacts');
+                            }
+                            $('#card_brend').removeClass('hide');
+                            $("#card_brend").removeClass('prozr');
+                        }
+
+
+                    })
+                }}
+            });
+            $(function() {
+                {% if renter is defined%}
+                $("#place{{renter.mapplace.id }}").addClass('g_active');
+
+                $("#place{{renter.mapplace.id }}").find('tspan').addClass('st3_active');
+                $("#place{{renter.mapplace.id }}").find('text').addClass('st3_active');
+                $("#place{{renter.mapplace.id }}").click();
+                {% endif %}
+            });
+            function reset(){
+                $("g").find('tspan').removeClass('st3_active');
+                $("g").find('text').removeClass('st3_active');
+                $("g").removeClass('g_active');
+            };
+
+        });
+
+
+    </script >
+{% endblock %}
+
+{% block subscribe %}
+{% endblock %}

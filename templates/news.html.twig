@@ -1,0 +1,30 @@
+{% extends 'index.html.twig' %}
+
+{% block title %}Акция{% endblock %}
+{% block sub_menu %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    <script type="application/javascript" >
+
+
+        function show_more(type, row) {
+            jQuery.fn.exists = function () {
+                return this.length > 0;
+            }
+
+            $('#hide_' + row + '_' + type).removeClass('d-none');
+            $('#hide_' + row + '_' + type).addClass('row');
+            $('#showmore' + type).attr('onclick', 'show_more(' + type + ',' + row + 1 + ')');
+            if ($('#hide_' + row + 1 + '_' + type).exists()) {
+
+            } else {
+                $('#showmore' + type).hide();
+
+            }
+
+        };
+
+    </script >
+{% endblock %}

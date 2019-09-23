@@ -1,0 +1,153 @@
+{% extends 'index.html.twig' %}
+
+{% block title %}Контакты{% endblock %}
+
+{% block bread_crumbs %}
+
+
+{% endblock %}
+{% block page_menu %}
+
+{% endblock %}
+{% block content %}
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=0bf9b68a-3b1e-4b26-9a05-a25639a8258b&lang=ru_RU"
+            type="text/javascript" >
+    </script >
+    <script type="text/javascript" >
+
+        // Функция ymaps.ready() будет вызвана, когда
+        // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+
+        ymaps.ready(function () {
+            // Создание карты.
+            var myMap = new ymaps.Map("map", {
+                center: [56.459804, 84.961982],
+                zoom: 17
+            });
+            var myPlacemark = new ymaps.Placemark([56.459503, 84.965536], {
+
+                // Хинт показывается при наведении мышкой на иконку метки.
+                hintContent: 'ТЦ СмайлCity',
+                // Балун откроется при клике по метке.
+                balloonContent: 'ТЦ СмайлСity, г. Томск, ул, Учебная, 48д'
+            },{
+                iconColor:'#B52F18',
+            });
+
+            var multiRoute = new ymaps.multiRouter.MultiRoute({
+                referencePoints: [
+                    'Учебная улица, 38',
+                    'ТЦ Смайл city, г. Томск, ул, Учебная, 48д'
+                ],
+
+            },
+
+                {
+                // Автоматически устанавливать границы карты так,
+                // чтобы маршрут был виден целиком.
+                boundsAutoApply: true
+            });
+            myMap.geoObjects.add(myPlacemark);
+
+            // Добавление маршрута на карту.
+            //myMap.geoObjects.add(multiRoute);
+        });
+    </script >
+    <div class="row_my map white_bm d-none d-md-block" id="map" >
+        <div class="wa" >
+
+        </div >
+    </div >
+    <div class="row_my" >
+        <div class="wa" >
+            <div class="contacts_blk" >
+                <div class="container-fluid pt-2 fl d-block d-md-none" >
+                    <div class="center font20 black" >Контакты</div >
+                    <div class="phone red_c" >{{ press_phone }}</div >
+                    <div class="plain_text black center" >Правила пребывания в ТЦ СМАЙЛ city</div >
+                    <div class="separator" ></div >
+                    <div class="center font20 black" >ПРЕСС-СЛУЖБА</div >
+                    <div class="text12 center" >{{ press_name }}</div >
+                    <div class="text12 center" >{{ press_mail }}</div >
+                </div >
+                <div class="header_contact_left fl d-none d-md-block" >
+                    <div class="center font20 black" >Контакты</div >
+                    <div class="phone red_c" >{{ press_phone }}</div >
+                    <div class="plain_text black center" >Правила пребывания в ТЦ СМАЙЛ city</div >
+                    <div class="separator" ></div >
+                    <div class="center font20 black" >ПРЕСС-СЛУЖБА</div >
+                    <div class="text12 center" >{{ press_name }}</div >
+                    <div class="text12 center" >{{ press_mail }}</div >
+                </div >
+                <div class="header_contact_right fl d-none d-md-block" >
+                    <div class="work_time_contact_area red_b d-none d-md-block" >
+                        <div class="work_time_ikon center" >
+                            <img src="{{ asset('img/clock.svg') }}" class="clock_ikon" >
+                        </div >
+                        <div class="name_contact_filds center white_c" >РЕЖИМ РАБОТЫ</div >
+                    </div >
+                    <div class="work_days_area d-none d-md-block" >
+                        <div class="work_time_block flex f_gorizontal" >
+                            {% for index,day in work_time %}
+                            <div class="work_time_item" >
+                                <div class="week_day center" >
+                                    {{ index }}
+                                </div >
+                                <div class="week_day_work_hours center" >
+                                    <div class="start_work center" >{{ day.start }}</div >
+                                    <div class="finish_work center" >{{ day.finish }}</div >
+                                </div >
+                            </div >
+                                {% if loop.last %}
+                                {% else %}
+                                <div class="vertical_separator" ></div >
+                                {% endif %}
+                            {% endfor %}
+
+                        </div >
+                    </div >
+                </div >
+                <div class="help" ></div >
+                <div class="feedback_area">
+                    {{ form_start(form, {'attr':{'id':'form'}}) }}
+                    <div class="font20 black" >ОСТАВЬТЕ ЗАЯВКУ</div >
+                    <div class="separator2" ></div >
+                    <div class="fl" >
+                        {{ form_widget(form.name, {'attr': {'placeholder':'Ф.И.О.','class':'contact_input'}}) }}
+                        {{ form_widget(form.email, {'attr': {'placeholder':'Email','class':'contact_input'}}) }}
+                        {{ form_widget(form.phone, {'attr': {'placeholder':'Телефон','class':'contact_input'}}) }}
+                        {{ form_widget(form.type, {'attr': {'placeholder':'Выбрать тему','class':'contact_select'}}) }}
+
+                    </div >
+                    <div class="text_area_contact" >
+                        <div >
+                            {{ form_widget(form.text, {'attr': {'placeholder':'Текст','class':'contact_textarea'}}) }}
+                        </div >
+                    </div >
+                    <div class="help"></div>
+                    <div class="upload_ared center" onclick="upload_file()">
+                        прекрепить файл
+                    </div >
+                    {{ form_widget(form.file, {'attr': {'placeholder':'Выбрать тему','class':'hide'},'id':'file'}) }}
+
+                    <div class="button_center" onclick="document.getElementById('form').submit(); return false;" >
+                        ОТПРАВИТЬ ЗАЯВКУ
+                    </div >
+                    {{ form_end(form) }}
+                </div >
+            </div >
+        </div >
+    </div >
+
+{% endblock %}
+{% block subscribe %}
+
+{% endblock %}
+{% block javascripts %}
+    <script>
+        function upload_file() {
+            $('#file').click();
+        }
+        </script>
+    
+{% endblock %}
