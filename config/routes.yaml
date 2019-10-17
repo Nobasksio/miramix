@@ -7,3 +7,4 @@ index:
     controller: App\Controller\indexController::index2
     requirements:
         wildcard: .*
+

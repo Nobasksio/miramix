@@ -2027,7 +2027,7 @@ html {
 .news-card {
     transition-duration: 0.5s;
     position: relative;
-    min-width: 380px;
+    width: 380px;
     height: 500px;
     background: #ffffff;
     z-index: 100;
@@ -2553,4 +2553,7 @@ div.news-card:hover .part-text{
 .active_renter{
     font-weight: 700;
     color: #000000;
+}
+.slider2{
+    max-width: 100%;
 }

@@ -28,7 +28,7 @@
                              :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}" >
                                 <div class="news-card-preview" v-for="news_item in entity_items" >
                                     <div class="img-part" >
-                                        <img src="/img/news.png" alt="" class="w-100" >
+                                        <img :src="'/uploads/file/'+news_item.image"  alt="" class="w-100" >
                                     </div >
                                     <div class="part-text " >
 

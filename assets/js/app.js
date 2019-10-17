@@ -84,10 +84,20 @@ const router = new VueRouter({
     mode:'history'
 })
 
+const axios = require('axios');
 new Vue({
     el: '#app',
     router,
+    mounted(){
+        axios.get('/api/app_state' )
+            .then((response)=> {
+                this.app_state = response.data
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    },
     data: {
-        app_state: window.app_state
+        app_state: {}
     }
 })

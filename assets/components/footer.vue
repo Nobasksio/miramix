@@ -5,8 +5,8 @@
                 <div class="row text14 " >
                     <div class="col-3 align-content-center flex-wrap text-addres" >
                         <div >
-                            +7 (3822) 62-62-62<br >
-                            г. ТОМСК ПР. МИРА, 38
+                            +7 (3822) 900-467<br >
+                            г. ТОМСК ПР. МИРА, 36
                         </div >
                         <div class="text10 pt-3" >
                             <router-link to="/plainpage/right" class="text-addres" > Правила пребывания в МираМикс</router-link >
@@ -26,7 +26,7 @@
                             <router-link to="/contacts" class="text-light" >Контакты</router-link >
                         </div >
                         <div >
-                            <router-link to="/plainpage/for_renter" class="text-light" >Арендатору</router-link >
+                            <router-link to="/plainpage/for_renter" class="text-light" >Арендаторам</router-link >
                         </div >
                         <div >
                             <router-link to="/plainpage/ad" class="text-light" >Размещение рекламы в ТЦ</router-link >
@@ -52,7 +52,7 @@
                 </div >
                 <div class="col-12" >
                     <div class="text14 py-3 text-center" >
-                        <router-link href="/plainpage/right" class="text-addres" > Правила пребывания в МираМикс</router-link >
+                        <router-link to="/plainpage/right" class="text-addres" > Правила пребывания в МираМикс</router-link >
                     </div >
                 </div >
                 <div class="col-6" >
@@ -87,13 +87,13 @@
             <div class="row social_media_blk py-4 bg-black" >
                 <div class="col" >
                     <div class="smm_item  mx-auto" >
-                        <div class="smm_in" ><a href="https://www.instagram.com/smile_tomsk/" class="block" ></a >
+                        <div class="smm_in" ><a href="https://instagram.com/tc_miramiks" class="block" ></a >
                         </div >
                     </div >
                 </div >
                 <div class="col" >
                     <div class="smm_item  mx-auto" >
-                        <div class="smm_vk" ><a href="https://www.vk.com/smilecity.tomsk" class="block" ></a ></div >
+                        <div class="smm_vk" ><a href="https://vk.com/miramiks.tomsk" class="block" ></a ></div >
                     </div >
                 </div >
             </div >

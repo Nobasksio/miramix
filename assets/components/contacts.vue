@@ -38,22 +38,22 @@
                         <div class="col pl-5 py-4 d-none d-md-block" >
                             <div class="pb-3" >
                                 <span class="text-grey" >Режим работы:</span ><br >
-                                ежедневно с 00:00 до 00:00
+                                ежедневно с 10:00 до 21:00
                             </div >
                             <div >
                                 <span class="text-grey" >Адрес</span ><br >
-                                г. Томск пр.Мира, 38
+                                г. Томск, пр. Мира, 36
                             </div >
                         </div >
 
                         <div class="col border-left border-1 py-4 d-block d-md-none" >
                             <div class="pb-3" >
                                 <span class="text-grey" >Режим работы:</span ><br >
-                                ежедневно с 00:00 до 00:00
+                                ежедневно с 10:00 до 21:00
                             </div >
                             <div >
                                 <span class="text-grey" >Адрес</span ><br >
-                                г. Томск пр.Мира, 38
+                                г. Томск пр.Мира, 36
                             </div >
                         </div >
 
@@ -67,9 +67,9 @@
                             </div >
                             <div >
 
-                                +7 (000) 000 00 00 доб. 0000<br >
+                                +7 (3822) 900-403<br >
+                                Администрация ТЦ: тел.  900-467 доп 1
                                 <span class="text-danger" >
-                            miramix@mail.ru
                         </span >
                             </div >
                         </div >
@@ -82,20 +82,20 @@
                             </div >
                             <div >
 
-                                +7 (000) 000 00 00 доб. 0000<br >
+                                +7 (3822) 900-400 доп 1611<br >
                                 <span class="text-danger" >
-                            miramix@mail.ru
+                            infomiramix@tomsk.ru
                         </span >
                             </div >
                         </div >
                         <div class="col border-left border-1 py-4" >
                             <div class="pb-3" >
-                        <span class="text-grey" >Дежурный<br >
-                            администратор:</span >
+                        <span class="text-grey" >Отдел арендных<br >
+                            отношений:</span >
                             </div >
                             <div >
-                                +7 (000) 000 00 00<br >
-                                +7 (000) 000 00 00
+                                +7 (3822) 900-992<br >
+                                arenda@lama.tomsk.ru
                             </div >
                         </div >
                     </div >
@@ -157,14 +157,14 @@
             make_path(){
                 $('#map2').html('');
                 var myMap = new ymaps.Map("map2", {
-                    center: [56.514981, 84.973379],
+                    center: [56.513742, 84.973629],
                     zoom: 16,
                     controls: ['zoomControl'],
                 });
 
                 var multiRoute = new ymaps.multiRouter.MultiRoute({
                     referencePoints: [
-                        this.from,
+                        'г. Томск, '+this.from,
                         'ТЦ Мирамикс, г. Томск, ул. Проспект Мира 36'
                     ],
 

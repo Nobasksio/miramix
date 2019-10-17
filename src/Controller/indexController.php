@@ -17,12 +17,13 @@ use App\Repository\PlusRepository;
 use App\Repository\RenterRepository;
 use App\Repository\SliderRepository;
 use App\Utilit\Utilit;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 class indexController extends BaseController
 {
     /**
-     * @Route("/", name="index_t")
+     * @Route("/main", name="index_t")
      */
     public function index(NewsRepository $newsRepository,
                           ActionRepository $actionRepository,
@@ -36,15 +37,25 @@ class indexController extends BaseController
     }
 
     /**
-     * @Route("/main", name="index")
+     * @Route("/", name="index")
      */
-    public function index2(NewsRepository $newsRepository,
-                          ActionRepository $actionRepository,
-                          RenterRepository $renterRepository,
-                          PlusRepository $plusRepository,
-                         PlainpageRepository $pr,
+    public function index2()
+    {
+
+        return $this->render('index.html.twig');
+    }
+
+    /**
+     * @Route("/api/app_state", name="index_test2")
+     */
+
+    public function appState(NewsRepository $newsRepository,
+                           ActionRepository $actionRepository,
+                           RenterRepository $renterRepository,
+                           PlusRepository $plusRepository,
+                           PlainpageRepository $pr,
                            CategoryRepository $categoryRepository,
-                          SliderRepository $sliderRepository)
+                           SliderRepository $sliderRepository)
     {
         $news = $newsRepository->findAll(['active'=>true],['date'=> 'Desc']);
         $actions = $actionRepository->findby(['active'=>true],['sort'=> 'ASC']);
@@ -75,6 +86,7 @@ class indexController extends BaseController
 
         $array_news_and_actions = [];
 
+
         foreach ($array_news as $key=>$news){
             $array_news_and_actions[] = $news;
 
@@ -83,9 +95,14 @@ class indexController extends BaseController
             }
         }
 
+        if (count($array_news_and_actions)== 0){
+            $array_news_and_actions = $array_actions;
+        }
+
         $place = $this->getParameter('myseting_place');
         $work_time = $this->getWorktime();
         //$about = file_get_contents($place.'/about.txt');
+
 
         $app_state = json_encode([
             'renters' => $array_renters,
@@ -100,9 +117,12 @@ class indexController extends BaseController
 
 
 
-        return $this->render('index.html.twig',[
-            'app_state'=>$app_state]);
+        $response = JsonResponse::fromJsonString($app_state);
+
+        return $response;
+
     }
+
     /**
      * @Route("/test", name="index_test")
      */

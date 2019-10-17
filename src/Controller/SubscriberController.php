@@ -54,13 +54,13 @@ class SubscriberController extends AbstractController
                 "email" => $email,
                 "customFieldValues" => [[
                     "customFieldId" => "fV7Xt",
-                    "value" => ['site']
+                    "value" => ['miramix']
                 ]]
             ];
             $curl->post('https://api.getresponse.com/v3/contacts',$data);
 
 
-                //$result = $curl->response->json;
+                $result = $curl->response->json;
 
             return new Response(1);
         } catch (\mysqli_sql_exception $exception) {

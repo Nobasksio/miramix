@@ -21,7 +21,7 @@
             <div class="container-fluid px-0 py-4">
                 <div class="row">
                     <div class="col-lg-5 d-none d-lg-block">
-                        <img :src="'/uploads/file/'+our_new.image" alt="" >
+                        <img :src="'/uploads/file/'+our_new.image" alt="" class="img-fluid" >
                     </div>
                     <div class="col-lg-7 col-12">
                         <span v-html="our_new.description"></span>
@@ -66,9 +66,14 @@
             },
             our_new: function () {
                 let self = this;
-                let our_array = this.app_state.news_real.filter(function (news) {
+                let our_array = [{}]
+                try {
+                 our_array = this.app_state.news_real.filter(function (news) {
                     return news.id == self.id_news
                 })
+                } catch (e) {
+
+                }
                 return our_array[0]
             }
         },

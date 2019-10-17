@@ -21,7 +21,7 @@
             <div class="container-fluid px-0 py-4">
                 <div class="row">
                     <div class="col-5">
-                        <img :src="'/uploads/file/'+our_action.image" alt="" >
+                        <img :src="'/uploads/file/'+our_action.image"  class='img-fluid' alt="" >
                     </div>
                     <div class="col-7">
                         <span v-html="our_action.description"></span>

@@ -12,7 +12,7 @@ import renterPage from '../components/renter-page'
 export const routes = [
     {path: '/department', component: Department },
     {path: '/renter/:id', component: renterPage },
-    {path: '/main', component: mainPage },
+    {path: '/', component: mainPage },
     {path: '/news', component: newsActionsPage },
     {path: '/news/:id', component: newsDetailPage },
     {path: '/action/:id', component: actionDetailPage },

@@ -49,7 +49,8 @@
 
 <script >
     export default {
-        name: "header-my"
+        name: "header-my",
+        props:['app_state']
     }
 </script >
 

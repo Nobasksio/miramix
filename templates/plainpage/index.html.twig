@@ -37,7 +37,7 @@
                                 <tr onclick="window.location.href='{{ path('plainpage_edit',{'id':plainpage.id}) }}'; return false">
                                     <td>{{ loop.index }}</td>
                                     <td>{{ plainpage.name }}</td>
-                                    <td>{{ url('index') }}plainpage/{{ plainpage.linkName }}</td>
+                                    <td>{{ url('index',{'wildcard':''})}}{{ plainpage.linkName }}</td>
                                     <td>{{ plainpage.active ? 'Да' : 'Нет' }}
                                 </tr>
                             {% endfor %}

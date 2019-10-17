@@ -21,7 +21,7 @@
                              v-on:mouseover="mouseon(news_item.type+''+news_item.id,news_item.type)"
                              v-on:mouseout="mouseout(news_item.type+''+news_item.id,news_item.type)">
                             <div class="img-part" :ref="'image'+news_item.type+''+news_item.id">
-                                <img src="/img/news.png" alt="" class="w-100" >
+                                <img :src="'/uploads/file/'+news_item.image"  alt="" class="w-100" >
                             </div >
                             <div class="part-text " >
 
