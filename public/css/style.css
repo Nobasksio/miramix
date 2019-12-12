@@ -2024,15 +2024,7 @@ html {
     color: #ffffff;
 }
 
-.news-card {
-    transition-duration: 0.5s;
-    position: relative;
-    width: 380px;
-    height: 500px;
-    background: #ffffff;
-    z-index: 100;
-    border: 1px solid #d4d4d4;
-}
+
 .news-card:hover {
     z-index:200;
 }
@@ -2051,7 +2043,7 @@ html {
     margin: 0 20px 0 0;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 760px) {
     .container-news {
         position: relative;
         width: 315px;
@@ -2062,20 +2054,51 @@ html {
     .news-card {
         position: relative;
         min-width: 315px;
-        height: 500px;
+        height: 480px;
         background: #ffffff;
         z-index: 100;
         border: 1px solid #d4d4d4;
 
     }
 }
-@media (min-width: 1000px) {
+
+@media (min-width: 1200px) {
     .container-news {
         position: relative;
         width: 1140px;
         overflow: hidden;
         transition: transform 150ms ease-out;
         transform: translatex(0px);
+    }
+
+    .news-card {
+        transition-duration: 0.5s;
+        position: relative;
+        min-width: 380px;
+        height: 500px;
+        background: #ffffff;
+        z-index: 100;
+        border: 1px solid #d4d4d4;
+    }
+
+}
+@media (min-width: 760px) and (max-width: 1199px) {
+    .container-news {
+        position: relative;
+        width: 760px;
+        overflow: hidden;
+        transition: transform 150ms ease-out;
+        transform: translatex(0px);
+    }
+
+    .news-card {
+        transition-duration: 0.5s;
+        position: relative;
+        min-width: 380px;
+        height: 500px;
+        background: #ffffff;
+        z-index: 100;
+        border: 1px solid #d4d4d4;
     }
 
 }

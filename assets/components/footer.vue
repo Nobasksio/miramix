@@ -47,8 +47,8 @@
         <div class="container-fluid d-md-none d-block bg-black " >
             <div class="row" >
                 <div class="col-12 text-center pt-3" >
-                    +7 (3822) 62-62-62<br >
-                    г. ТОМСК ПР. МИРА, 38
+                    +7 (3822) 900-467<br >
+                    г. ТОМСК ПР. МИРА, 36
                 </div >
                 <div class="col-12" >
                     <div class="text14 py-3 text-center" >

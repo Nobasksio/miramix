@@ -1,12 +1,19 @@
 <template >
     <div class="container-fluid p-0" >
-        <div class="slider2" >
-            <div class=" px-0" v-for="slide in slides">
-            <img :src="'/uploads/file/'+slide.image" class='img-fluid d-none d-md-inline ofh' />
-
-            </div>
-
-        </div >
+        <b-carousel
+                id="carousel-fade"
+                style="text-shadow: 0px 0px 2px #000"
+                controls
+                indicators
+                :interval="3000"
+        >
+            <b-carousel-slide
+                    key="index"
+                    v-for="(slide, index) in slides"
+                    :img-src="'/uploads/file/'+slide.image"
+            >
+            </b-carousel-slide>
+        </b-carousel>
 
     </div >
 </template >

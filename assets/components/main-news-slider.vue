@@ -3,8 +3,8 @@
         <div class="container-fluid news-up px-0" >
             <div class="container px-0 " >
                 <h3 class="mx-auto text-center pt-2 pb-4" >Новости и акции</h3 >
-                <div class="container-news  mx-auto" ref="wrapper">
-                    <div class="container d-flex px-0 card-carousel-cards_wrapper"
+                <div class="container-news  mx-auto px-0" ref="wrapper">
+                    <div class=" d-flex px-0 card-carousel-cards_wrapper"
                          :style="{ transform: 'translateX' + '(' + currentOffset + 'px' + ')'}" >
                             <div class="news-card"  v-for="news_item in news"
                                  :ref="'main'+news_item.type+''+news_item.id"
@@ -13,7 +13,7 @@
                                 <div class="img-part" :ref="'image'+news_item.type+''+news_item.id" >
                                     <img :src="'/uploads/file/'+news_item.image" alt="" class="w-100" >
                                 </div >
-                                <div class="part-text " :ref="'text'+news_item.type+''+news_item.id" >
+                                <div class="part-text ofh" :ref="'text'+news_item.type+''+news_item.id" >
 
                                     <div class="text-danger float-left" v-if="news_item.type=='action'" >
                                         АКЦИИ
@@ -129,13 +129,15 @@
             paginationFactor(){
                 if (screen.width<400){
                     return 315
-                } else {
+                } else{
                     return 380
                 }
             },
             windowSize(){
                 if (screen.width<400){
                     return 1
+                }  else if (screen.width<1140){
+                    return 2
                 } else {
                     return 3
                 }
@@ -172,7 +174,7 @@
                 this.$refs[main][0].style.marginTop = -25+'px';
                 this.$refs[main][0].style.marginBottom = -25+'px';
                 this.$refs[text_name][0].style.height = 55+'%';
-                this.$refs[text2][0].style.height = 140+'px';
+                this.$refs[text2][0].style.height = 120+'px';
             },
             mouseout(ref_name,type) {
                 let main = 'main'+ref_name

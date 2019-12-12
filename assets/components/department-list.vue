@@ -11,13 +11,13 @@
             <b-modal id="modal-center" size="xl" scrollable hide-footer v-model="show" centered
                      :title="selected_brand.name" >
                 <div class="row brand-detail-card" >
-                    <div class="col" >
+                    <div class="col-12 col-lg-6" >
                         <img :src="'/uploads/file/'+selected_brand.image" alt="" class="img-fluid" >
                     </div >
-                    <div class="col ofscroll pr-5" >
-                        <div class="row justify-content-between align-items-center px-0" >
+                    <div class="col-12 col-lg-6 pr-5" >
+                        <div class="row justify-content-between align-items-center " >
                             <img :src="'/uploads/file/'+selected_brand.logo" alt="" >
-                            <div >
+                            <div class="px-3">
                                 <div class="h4 text-body" >
                                     {{ selected_brand.floor }} ЭТАЖ
                                 </div >

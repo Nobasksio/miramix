@@ -23,7 +23,7 @@
                             <div class="img-part" :ref="'image'+news_item.type+''+news_item.id">
                                 <img :src="'/uploads/file/'+news_item.image"  alt="" class="w-100" >
                             </div >
-                            <div class="part-text " >
+                            <div class="part-text ofh " :ref="'text'+news_item.type+''+news_item.id" >
 
                                 <div class="float-left" :class="entity_kit.text_color" >
                                     {{ name }}
@@ -35,7 +35,7 @@
                                 <div class="text18 clear_both text-body pt-3 pb-2 font-weight-bold" >
                                     {{ news_item.name }}
                                 </div >
-                                <div class="discr-news" :ref="'text2'+news_item.type+''+news_item.id" >
+                                <div class="discr-news ofh" :ref="'text2'+news_item.type+''+news_item.id" >
                                     <span v-html="news_item.short_description" ></span >
                                 </div >
                             </div >
@@ -101,7 +101,9 @@
                 this.$refs[main][0].style.marginTop = -25+'px';
                 this.$refs[main][0].style.marginBottom = -25+'px';
                 this.$refs[text_name][0].style.height = 55+'%';
-                this.$refs[text2][0].style.height = 140+'px';
+                this.$refs[text2][0].style.height = 120+'px';
+
+
             },
             mouseout(ref_name,type) {
                 let main = 'main'+ref_name
