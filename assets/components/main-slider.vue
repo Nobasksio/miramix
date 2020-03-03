@@ -7,13 +7,20 @@
                 indicators
                 :interval="3000"
         >
-            <b-carousel-slide
-                    key="index"
-                    v-for="(slide, index) in slides"
-                    :img-src="'/uploads/file/'+slide.image"
-            >
-            </b-carousel-slide>
-        </b-carousel>
+            <template
+                      v-for="(slide, index) in slides" >
+
+
+
+                    <b-carousel-slide
+
+                            :img-src="'/uploads/file/'+slide.image"
+                    >
+                    </b-carousel-slide >
+                    <a :href="slide.link" v-if='slide.link' class="btn btn-primary stretched-link">Go somewhere</a>
+
+            </template >
+        </b-carousel >
 
     </div >
 </template >
@@ -21,7 +28,7 @@
 <script >
     export default {
         name: "main-slider",
-        props:['slides'],
+        props: ['slides'],
     }
 </script >
 
